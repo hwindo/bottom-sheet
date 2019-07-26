@@ -1,0 +1,168 @@
+@keyframes ball1Move-0 {
+	0% {
+		transform: translate(0, 0);
+	}
+	62% {
+		transform: translate(-6px, -3px);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+@keyframes ball2Move-0 {
+	0% {
+		transform: translate(0, 0);
+	}
+	62% {
+		transform: translate(3px, 6px);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+@keyframes ballHover-0 {
+	0% {
+		transform: scale(1)
+	}
+	16% {
+		transform: scale(1.016)
+	}
+	100% {
+		transform: scale(1)
+	}
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes horizontal-move {
+	0% {
+		transform: scale(2) translateX(0);
+		opacity: 1;
+		display: flex;
+	}
+	100% {
+		transform: scale(2) translateX(6vw);
+		opacity: 0;
+		display: none;
+	}
+}
+
+@keyframes horizontal-move-2 {
+	0% {
+		transform: translateX(-15vw);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes rotate180-0 {
+	from {
+		transform: rotate(-180deg);
+	}
+	to {
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes rotate180-1 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-180deg);
+	}
+}
+
+@keyframes rotate180-reverse-0 {
+	from {
+		transform: rotate(180deg);
+	}
+	to {
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes rotate180-reverse-1 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(180deg);
+	}
+}
+
+@keyframes slideDown-1 {
+	from {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0%);
+	}
+}
+
+@keyframes slideUp-0 {
+	from {
+		transform: translateY(0%);
+	}
+	to {
+		transform: translateY(100%);
+	}
+}
+
+@keyframes slideUp-1 {
+	from {
+		transform: translateY(100%);
+	}
+	to {
+		transform: translateY(0%);
+	}
+}
+
+@keyframes markChange-0 {
+	0% {
+		background: unset;
+	}
+	62% {
+		background: #333;
+	}
+	100% {
+		background: unset;
+	}
+}
+
+@keyframes markChange-1 {
+}
+
+@keyframes pop-countryselect-1 {
+	from {
+		transform: scale(1, .33) translate(0, 100%);
+	}
+	to {
+		transform: scale(1, 1) translate(0, 0);
+	}
+}
+
+@keyframes pop-countryselect-0 {
+	from {
+		transform: scale(1, 1) translate(0, 0);
+	}
+	to {
+		transform: scale(1, .33) translate(0, 100%);
+	}
+}

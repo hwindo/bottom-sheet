@@ -1,0 +1,19 @@
+{
+  "name": "bottom-sheet",
+  "version": "0.0.1",
+  "description": "Bottom sheet material like",
+  "main": "main.js",
+  "scripts": {
+    "dev": "parcel watch index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "material",
+    "bottom-sheet"
+  ],
+  "author": "Herwindo Artono",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.22.7"
+  }
+}
