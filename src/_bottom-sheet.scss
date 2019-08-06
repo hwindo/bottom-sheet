@@ -1,123 +1,140 @@
+:root {
+    --translatey: 0px;
+}
+
+body {
+    perspective: 1000px;
+}
+
 .c-bottom-sheet {
-	$component: &;
-	pointer-events: none;
-	visibility: hidden;
+    $component: &;
+    $timing-fn: cubic-bezier(0.4, 0, 0.2, 1);
 
-	&.active {
-		visibility: visible;
-		pointer-events: unset;
-	}
+    pointer-events: none;
+    visibility: hidden;
+    overflow: hidden;
 
-	position: fixed;
-	top: 0;
-	height: 100vh;
-	width: 100vw;
-	z-index: 15;
-	transition: opacity, visibility .25s;
+    &.active {
+        visibility: visible;
+        pointer-events: unset;
+    }
 
-	&__scrim {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 15;
+    transition: opacity, visibility 0.25s;
 
-		opacity: 0;
+    &__scrim {
+        opacity: 0;
 
-		.active & {
-			opacity: 1;
-		}
+        .active & {
+            opacity: 1;
+        }
 
-		display: block;
-		position: absolute;
-		height: 100vh;
-		width: 100vw;
-		background-color: rgba(0, 0, 0, .3);
-		transition: opacity .3s;
-		top: 0;
-	}
+        display: block;
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.3);
+        transition: opacity 0.3s;
+        top: 0;
+    }
 
-	&__content {
-		display: inline-block;
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		min-height: 38vh;
+    &__sheet {
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        bottom: -100px;
+        width: 100%;
+        min-height: 38vh;
 
-		background-color: white;
-		border-radius: 12px 12px 0 0;
-		padding: 0 1.5rem 1rem 1.5rem;
-		animation: cubic-bezier(0.4, 0.0, 0.2, 1) .2s slideUp-0 forwards;
+        background-color: white;
+        border-radius: 12px 12px 0 0;
+        padding: 0 1.5rem calc(1rem + 100px) 1.5rem;
+        transition: transform 250ms $timing-fn;
+        transform: translateY(100%);
+        // animation: cubic-bezier(0.4, 0, 0.2, 1) 0.2s slideUp-0 forwards;
 
-		.active & {
-			animation: cubic-bezier(0.4, 0.0, 0.2, 1) .25s slideUp-1 forwards
-		}
-	}
+        .active & {
+            transform: translateY(0);
+            // animation: cubic-bezier(0.4, 0, 0.2, 1) 0.25s slideUp-1 forwards;
+        }
 
-	&__handle {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding-top: .5rem;
-		padding-bottom: 1rem;
+        &.active {
+            transform: var(--translateY);
+        }
+    }
 
-		> span {
-			display: block;
-			height: 2px;
-			width: 28px;
-			margin-bottom: 2px;
-			background-color: rgba(0, 0, 0, 0.3);
-			border-radius: 2px;
-		}
-	}
+    &__handle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0.5rem;
+        padding-bottom: 1rem;
 
-	&__item {
-		$border-item: 1px solid rgba(0, 0, 0, .3);
-		width: 100%;
-		list-style: none;
+        > span {
+            display: block;
+            height: 2px;
+            width: 28px;
+            margin-bottom: 2px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 2px;
+        }
+    }
 
-		border-bottom: $border-item;
-		padding: 1rem 0;
+    &__item {
+        $border-item: 1px solid rgba(0, 0, 0, 0.3);
+        width: 100%;
+        list-style: none;
 
-		&:first-child {
-			margin-top: 40px;
-			border-top: $border-item;
-		}
+        border-bottom: $border-item;
+        padding: 1rem 0;
 
-		&.active {
-			font-family: sans-serif;
-			font-weight: 900;
-		}
-	}
+        &:first-child {
+            margin-top: 40px;
+            border-top: $border-item;
+        }
 
-	&__link {
-		display: flex;
-		justify-content: space-between;
-		font-family: inherit;
-	}
+        &.active {
+            font-family: sans-serif;
+            font-weight: 900;
+        }
+    }
 
-	&__list {
-		margin: 0;
-		padding: 0;
+    &__link {
+        display: flex;
+        justify-content: space-between;
+        font-family: inherit;
+    }
 
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+    &__list {
+        margin: 0;
+        padding: 0;
 
-	&__tick {
-		display: none;
-		font-size: 24px;
-		object-fit: contain;
-		vertical-align: middle;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-		&:before {
-			color: #48AF4A;
-		}
+    &__tick {
+        display: none;
+        font-size: 24px;
+        object-fit: contain;
+        vertical-align: middle;
 
-		#{$component}__item.active & {
-			display: block;
-		}
-	}
+        &:before {
+            color: #48af4a;
+        }
 
-	// on larger screen
-	@media screen and (min-width: 769px) {
-		// display: none;
-	}
+        #{$component}__item.active & {
+            display: block;
+        }
+    }
+
+    // on larger screen
+    @media screen and (min-width: 769px) {
+        // display: none;
+    }
 }
